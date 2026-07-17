@@ -1,0 +1,40 @@
+Define a schema for an object "table" with metadata for etl 
+	PK: [cols...], Type1:[cols...]
+
+Define a interface that contains the table meta data ETLTable
+	getPK -> array(columns composing the key)
+	getType1 -> array
+	getType2 -> array
+	getType3 -> 
+
+Define a class that contains the table meta data ETLTable
+	Define a populate_metadata that reads from a json file, and validates with json_schema
+	getPK -> array(columns composing the key)
+	getType1 -> array
+	getType2 -> array
+	getType3 -> array
+
+Define an interface for IHasher
+	hashColumns(pk, type_1_cols,type_2_cols,type_3_cols)
+	getPK -> list(tuples(composite key elements))
+	getType1Hs -> dict(PK: list(tuples(composite key elements)), Hash: array)
+	getType2Hs -> dict(PK: list(tuples(composite key elements)), Hash: array)
+	getType3Hs -> dict(PK: list(tuples(composite key elements)), Hash: array)
+	
+
+Implement a concrete Hasher
+	For example HasherSparkDF
+
+
+Hash the conformed_previous_load
+Hash the conformed_current_load
+
+Define an interface for ICDC (Change Data Capture)
+	All methods return the list of tuples for the affected primary key values
+	get_new_data(prev_pk: IHasher.getPK() , current_pk: IHasher.getPK() )
+	get_deleted_data(prev_pk: IHasher.getPK() , current_pk: IHasher.getPK() )
+	get_changed_data_type_1(prev_pk: IHasher.getType1Hs() , current_pk: IHasher.getType1Hs() )
+	get_changed_data_type_2(prev_pk: IHasher.getType2Hs() , current_pk: IHasher.getType2Hs() )
+	get_changed_data_type_3(prev_pk: IHasher.getType3Hs() , current_pk: IHasher.getType3Hs() )
+
+TODO SCD

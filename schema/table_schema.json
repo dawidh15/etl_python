@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "table_name": {
+            "type": "string"
+        },
+        "PK": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "Type 1": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "Type 2": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "Type 3": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+        "PK",
+        "Type 1",
+        "Type 2",
+        "Type 3",
+        "table_name"
+    ]
+}
