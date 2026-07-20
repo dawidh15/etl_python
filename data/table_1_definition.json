@@ -1,7 +1,7 @@
 {
     "table_name": "My Table",
     "PK": [["PK_COL_1", "number"],["PK_COL_2", "number"],["PK_COL_3", "string"] ],
-    "Type 1": [["T1_1", "number"],["T1_2", "number"],["T1_3", "string"] ],
-    "Type 2": [["T2_1", "number"],["T2_2", "number"],["T2_3", "string"] ],
-    "Type 3": [["T3_1", "number"],["T3_2", "number"],["T3_3", "string"] ] 
+    "Type 1": [["T1_1", "string"],["T1_2", "string"],["T1_3", "string"] ],
+    "Type 2": [["T2_1", "string"],["T2_2", "string"],["T2_3", "string"] ],
+    "Type 3": [["T3_1", "string"],["T3_2", "string"],["T3_3", "string"] ] 
 }
