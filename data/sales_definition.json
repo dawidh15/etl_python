@@ -1,0 +1,6 @@
+{
+    "table_name": "sales",
+    "PK": [["SalesOrderNumber", "string"] ],
+    "Type 1": [["CustomerName", "string"],["EmailAddress", "string"],["Item", "string"] ],
+    "Type 2": [["SalesOrderLineNumber", "string"],["OrderDate", "string"] ]
+}

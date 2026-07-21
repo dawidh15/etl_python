@@ -26,28 +26,32 @@ class TableMetadata:
             self.pk_type.append(pk_item[1])
 
         self.type1 = []
-        for type1_item in table_config.get("Type 1"):
-            self.type1.append(type1_item[0])
-
         self.type1_type = []
-        for type1_item in table_config.get("Type 1"):
-            self.type1_type.append(type1_item[1])
+        if table_config.get("Type 1") != None:
+            
+            for type1_item in table_config.get("Type 1"):
+                self.type1.append(type1_item[0])
+            
+            for type1_item in table_config.get("Type 1"):
+                self.type1_type.append(type1_item[1])
         
         self.type2 = []
-        for type2_item in table_config.get("Type 2"):
-            self.type2.append(type2_item[0])
-
         self.type2_type = []
-        for type2_item in table_config.get("Type 2"):
-            self.type2_type.append(type2_item[1])
-
+        if table_config.get("Type 2") != None:        
+            for type2_item in table_config.get("Type 2"):
+                self.type2.append(type2_item[0])
+            
+            for type2_item in table_config.get("Type 2"):
+                self.type2_type.append(type2_item[1])
+        
         self.type3 = []
-        for type3_item in table_config.get("Type 3"):
-            self.type3.append(type3_item[0])
-
         self.type3_type = []
-        for type3_item in table_config.get("Type 3"):
-            self.type3_type.append(type3_item[1])
+        if table_config.get("Type 3") != None:
+            for type3_item in table_config.get("Type 3"):
+                self.type3.append(type3_item[0])
+
+            for type3_item in table_config.get("Type 3"):
+                self.type3_type.append(type3_item[1])
 
 
     def read_json(self) -> str:

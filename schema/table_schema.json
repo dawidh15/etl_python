@@ -44,9 +44,6 @@
     },
     "required": [
         "PK",
-        "Type 1",
-        "Type 2",
-        "Type 3",
         "table_name"
     ]
 }

@@ -22,10 +22,12 @@ from eccl.Table import TableMetadata, Table
 from eccl.Combiner import PandasCombiner
 from eccl.Hasher import CRC32Hasher
 
-data = pd.read_csv("data/sample_data.csv",  encoding="utf-8")
+#data = pd.read_csv("data/sample_data.csv",  encoding="utf-8")
+data = pd.read_csv("data/sales.csv",  encoding="utf-8")
 
 #read Metadata
-metadata = TableMetadata(json_path="data/table_1_definition.json",schema_path="schema/table_schema.json")
+#metadata = TableMetadata(json_path="data/table_1_definition.json",schema_path="schema/table_schema.json")
+metadata = TableMetadata(json_path="data/sales_definition.json",schema_path="schema/table_schema.json")
 
 #Initiate instance combiner
 pd_combiner = PandasCombiner()
@@ -35,5 +37,6 @@ crc32_hasher = CRC32Hasher()
 # set combiner and hasher at runtime!!
 myTable = Table(metadata=metadata, combiner=pd_combiner, hasher=crc32_hasher, data=data)
 
+myTable
 # combiner can be changed
 #myTable.set_combiner(new_combiner=pd_combiner)
