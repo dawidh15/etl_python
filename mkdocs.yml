@@ -1,0 +1,14 @@
+site_name: Extract, Clean, Conform and Load
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            show_signature: true
+            separate_signature: true
+            line_length: 80
+nav:
+  - Home: index.md
+  - Hasher: hasher.md

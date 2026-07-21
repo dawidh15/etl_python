@@ -31,12 +31,12 @@
       <bpmn:text>TableMetadata
 str name
 obj conn_string
-array pk
-array type_1_cols
-array type_2_cols
-array type_3_cols
+array pk, array pk_type
+array type1, array type1_type
+array type2, array type2_type
+array type3, array type3_type
 
-read_json(): table specs in json</bpmn:text>
+read_json(path_jason, path_json_schema): table specs in json</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0gt818f" sourceRef="DataObjectReference_1pxbocg" targetRef="TextAnnotation_1ei8lq0" />
     <bpmn:textAnnotation id="TextAnnotation_1kckv31">
@@ -94,35 +94,7 @@ add_data(object)</bpmn:text>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_00ofjvl">
       <bpmndi:BPMNShape id="TextAnnotation_1ei8lq0_di" bpmnElement="TextAnnotation_1ei8lq0">
-        <dc:Bounds x="140" y="320" width="201.54975908080058" height="141.58636026686435" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0pr0cq0" bpmnElement="TextAnnotation_1kckv31">
-        <dc:Bounds x="370" y="100" width="201.5435222672065" height="256.4102564102564" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_121dg7i_di" bpmnElement="TextAnnotation_121dg7i">
-        <dc:Bounds x="720" y="210" width="110" height="84" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_14c1gxq_di" bpmnElement="TextAnnotation_14c1gxq">
-        <dc:Bounds x="610" y="400" width="132" height="70" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1asn45j" bpmnElement="TextAnnotation_1svxhre">
-        <dc:Bounds x="800" y="400" width="131.9795883940621" height="70.17543859649123" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_01qncur_di" bpmnElement="TextAnnotation_01qncur">
-        <dc:Bounds x="1020" y="80" width="99.99156545209178" height="126.85560053981105" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0oqmewa_di" bpmnElement="TextAnnotation_0oqmewa">
-        <dc:Bounds x="1050" y="376" width="99.99156545209178" height="29.984817813765183" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_04wu8fe_di" bpmnElement="TextAnnotation_04wu8fe">
-        <dc:Bounds x="1250" y="270" width="99.99156545209178" height="112.01079622132255" />
+        <dc:Bounds x="140" y="300" width="202" height="170" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0j7hnjt_di" bpmnElement="Flow_0j7hnjt">
@@ -135,6 +107,12 @@ add_data(object)</bpmn:text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="769" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1h2v5ps_di" bpmnElement="Activity_1id9rce">
+        <dc:Bounds x="270" y="747" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ccctfn_di" bpmnElement="Event_1ccctfn">
+        <dc:Bounds x="422" y="769" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataObjectReference_1pxbocg_di" bpmnElement="DataObjectReference_1pxbocg">
         <dc:Bounds x="172" y="505" width="36" height="50" />
@@ -178,16 +156,44 @@ add_data(object)</bpmn:text>
           <dc:Bounds x="1047" y="562" width="66" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1h2v5ps_di" bpmnElement="Activity_1id9rce">
-        <dc:Bounds x="270" y="747" width="100" height="80" />
+      <bpmndi:BPMNShape id="BPMNShape_0pr0cq0" bpmnElement="TextAnnotation_1kckv31">
+        <dc:Bounds x="370" y="100" width="201.5435222672065" height="256.4102564102564" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1ccctfn_di" bpmnElement="Event_1ccctfn">
-        <dc:Bounds x="422" y="769" width="36" height="36" />
+      <bpmndi:BPMNShape id="TextAnnotation_121dg7i_di" bpmnElement="TextAnnotation_121dg7i">
+        <dc:Bounds x="720" y="210" width="110" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_14c1gxq_di" bpmnElement="TextAnnotation_14c1gxq">
+        <dc:Bounds x="610" y="400" width="132" height="70" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0gt818f_di" bpmnElement="Association_0gt818f">
         <di:waypoint x="190" y="505" />
-        <di:waypoint x="190" y="462" />
+        <di:waypoint x="190" y="470" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Group_0bi8xa1_di" bpmnElement="Group_0bi8xa1">
+        <dc:Bounds x="590" y="170" width="390" height="400" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1asn45j" bpmnElement="TextAnnotation_1svxhre">
+        <dc:Bounds x="800" y="400" width="131.9795883940621" height="70.17543859649123" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_01qncur_di" bpmnElement="TextAnnotation_01qncur">
+        <dc:Bounds x="1020" y="80" width="99.99156545209178" height="126.85560053981105" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0oqmewa_di" bpmnElement="TextAnnotation_0oqmewa">
+        <dc:Bounds x="1050" y="376" width="99.99156545209178" height="29.984817813765183" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_0pnezj2_di" bpmnElement="Group_0pnezj2">
+        <dc:Bounds x="1020" y="350" width="180" height="300" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_04wu8fe_di" bpmnElement="TextAnnotation_04wu8fe">
+        <dc:Bounds x="1250" y="270" width="99.99156545209178" height="112.01079622132255" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_07oml77" bpmnElement="Association_0orltz5">
         <di:waypoint x="450" y="455" />
         <di:waypoint x="459" y="356" />
@@ -216,12 +222,6 @@ add_data(object)</bpmn:text>
         <di:waypoint x="1200" y="398" />
         <di:waypoint x="1250" y="342" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Group_0bi8xa1_di" bpmnElement="Group_0bi8xa1">
-        <dc:Bounds x="590" y="170" width="390" height="400" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Group_0pnezj2_di" bpmnElement="Group_0pnezj2">
-        <dc:Bounds x="1020" y="350" width="180" height="300" />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1ec35e4">

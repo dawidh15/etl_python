@@ -4,6 +4,16 @@ PS> pip install pipreqs
 
 creates a requirements.txt
 PS> pipreqs .--force
+
+pip install mkdocs mkdocs-material "mkdocstrings[python]"
+# Create templates
+mkdocs new
+
+build local
+mkdocs serve
+
+build docs
+mkdows build
 """
 
 
