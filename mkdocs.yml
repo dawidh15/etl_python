@@ -12,3 +12,4 @@ plugins:
 nav:
   - Home: index.md
   - Hasher: hasher.md
+  - Combiner: combiner.md

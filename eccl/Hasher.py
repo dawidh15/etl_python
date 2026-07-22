@@ -4,34 +4,34 @@ import zlib
 class IHasher(ABC):
     """An interface to implement hashing algorithms."""
 
-    # hash a dictionary where keys are pks, and values the combined data from a table
+    
     @abstractmethod
     def hash(self,pk_combined_cols: dict):
         """
-        Brief one-line summary of the function.
+        Hash a dictionary where keys are pks, and values the combined data from a table
 
-        Extended description of the function, explaining its purpose,
-        behavior, and any important details.
+        `pk_combined_columns` is the output of a *Combiner*. It's a dictionary and thus, it's agnostic of the original data source format. Mainly called internally from another methods.
 
         Args:
-            param1 (type): Description of the first parameter.
-            param2 (type): Description of the second parameter.
+            self (object): It needs an instance of a Hasher.
+            pk_combined_cols (dict): The output of a *Combiner*
 
         Returns:
-            return_type: Description of the return value.
+            return_type: another dictionary with the combined primary keys as dictionary keys, and the hashed values as dictionary values.
 
         Raises:
-            ErrorType: Explanation of the error condition.
+            ErrorType: Read the actual implementation details.
 
         Examples:
-            >>> result = function_name("example", 42)
-            >>> print(result)
-            ExpectedOutput
+            >>> result = IHasher.hash(pk_combined_cols)
+            >>> #print(result)
+            a dictionary
         """
         pass
 
 
 class CRC32Hasher(IHasher):
+    """Basic implementation of crc32 hashing algorithm from **zlib** module."""
     def hash(self, pk_combined_cols: dict):
             hashed_dict = {}
             for k, v in pk_combined_cols.items():
